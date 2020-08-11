@@ -1,17 +1,15 @@
-﻿using System.Collections;
+﻿using B83.LogicExpressionParser;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 public class Journal : MonoBehaviour,ICondition<int>
-{
-    
+{  
     public List<JournalEntry> journalEntries;
+  
 
-    public void Start()
-    {
-        
-    }
+   
     public bool CheckCondition(int index)
     {
         return true;
@@ -26,8 +24,18 @@ public class Journal : MonoBehaviour,ICondition<int>
         JournalEntry je = new JournalEntry();
        
         je.id = id;
-        journalEntries.Add(je);
-       // je.entries = new List<Entry>();
+        journalEntries.Add(je);     
+    }
+
+    public void SetAllJournalEntryIndexByID(LogicExpression exp)
+    {
+        for (int i = 0; i < journalEntries.Count; i++)
+        {
+            JournalEntry currentEntry = journalEntries[i];
+           
+                exp[currentEntry.id].Set(currentEntry.index);
+        }
+        
     }
 }
 
@@ -35,7 +43,8 @@ public class Journal : MonoBehaviour,ICondition<int>
 public class JournalEntry
 {
     public string id;
-    public List<Entry> entries;
+    public int index;
+    public List<Entry> entries;  
 }
 
 [System.Serializable]
@@ -43,5 +52,4 @@ public class Entry
 {
    public string entryText;
    public int index;
-  // public List<string> conditions;
 }
