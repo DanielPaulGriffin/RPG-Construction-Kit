@@ -150,20 +150,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a0f93e32c4c4049b65a95c802fa86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  journalScript: {fileID: 749550999}
   greetingEntries:
-  - id: yoyo
+  - id: 
     greetings:
-    - greetingText: This is the very begining!
+    - greetingText: Is kneti over 40?
       conditions:
-      - A1_Begin == 0
-    - greetingText: 
-      conditions: []
-    - greetingText: 
-      conditions: []
-    - greetingText: 
-      conditions: []
-    - greetingText: 
-      conditions: []
+      - Kneti_Age > 40
+    - greetingText: is kneti a gnome?
+      conditions:
+      - Kneti_Height < 150
+    - greetingText: Is kneti a adult and not a midget?
+      conditions:
+      - Kneti_Age > 18 and Kneti_Height >150
 --- !u!4 &599978559
 Transform:
   m_ObjectHideFlags: 0
@@ -300,18 +299,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   journalEntries:
-  - id: A1_Entry1
-    index: 0
-    entries:
-    - entryText: hey nice to meet you
-      index: 0
-    - entryText: we already met
-      index: 5
-  - id: A2_Entry1
-    index: 0
+  - id: Kneti_Age
+    index: 41
     entries: []
-  - id: A2_Entry2
-    index: 0
+  - id: Kneti_Height
+    index: 165
     entries: []
 --- !u!4 &749551000
 Transform:
